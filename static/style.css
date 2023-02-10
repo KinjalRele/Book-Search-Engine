@@ -1,0 +1,65 @@
+body{
+    color: white;
+    background-color: paleturquoise;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+ /*Search box*/
+input[type=text], select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/*Search button*/
+input[type=submit] {
+    width: 100%;
+    background-color: seagreen;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*Delete button*/
+input[value=Delete] {
+    width: 20%;
+    background-color: seagreen;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*Add button*/
+input[value="Add to Favorite Books"] {
+    width: 20%;
+    background-color: seagreen;
+    color: white;
+    padding: 14px 50px;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*Books List*/
+li{
+    font-size: 24;
+}
+
+/*Image Thumbnails*/
+img{
+    width: 500px;
+    height: 700px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

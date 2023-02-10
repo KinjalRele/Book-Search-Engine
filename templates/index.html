@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "/static/style.css" rel="stylesheet"/>
+    </head>
+    
+    <body>
+        <h1>
+            <!--Form to search books-->
+            <form method="GET" action="/">
+                Enter the book you want to search for: 
+                <input type="text" name="term"/>
+                <input type="submit" value="Search!"/>
+            </form>
+        </h1>
+
+        <!--Displaying search results-->
+        <h2>Search Results:
+        <ol>
+            {%for i in range(0, 5)%}
+            <li>Title - {{books_found_title[i]}}<br>
+                Subtitle - {{books_found_subtitle[i]}}<br>
+                Author - {{books_found_authors[i]}}<br>   
+            </li>
+             <img src={{books_found_thumbnails[i]}}/><br>
+             <form method="POST" action="/create">
+                <input type = "hidden" name = "add_book_title" value = "{{books_found_title[i]}}"/>
+                <input type = "hidden" name = "add_book_subtitle" value = "{{books_found_subtitle[i]}}"/>
+                <input type = "hidden" name = "add_book_author" value = "{{books_found_authors[i]}}"/>
+                <input type = "hidden" name = "add_book_thumbnail" value = "{{books_found_thumbnails[i]}}"/>
+                <input type="submit" value="Add to Favorite Books"/>
+            </form>
+        {%endfor%}
+        </ol> 
+          
+        </h2>
+        <!--Displaying favorite books database-->
+        <h2>Kinjal's favorite Books are : </h2>  
+        <h3>
+            <ol>
+                {%for i in range(num_favoriteBooks)%}
+                    {%if favorite_books[i].title == "Malgudi Days"%}
+                        <li style = "color: green;">{{favorite_books[i].title}}</li>
+                        Subtitle - {{favorite_books[i].subtitle}}<br>
+                        Author - {{favorite_books[i].author}}<br>
+                        <div><img src = "{{favorite_books[i].thumbnailLink}} "> </img></div>
+                    {% else %}
+                        <li>{{favorite_books[i].title}}</li>
+                        Subtitle - {{favorite_books[i].subtitle}}<br>
+                        Author - {{favorite_books[i].author}}<br>
+                        <div><img src = "{{favorite_books[i].thumbnailLink}} "></img></div>
+                    {% endif %}
+                    <form method="POST" action="/delete">
+                        <input type = "hidden" name = "book_name" value = "{{favorite_books[i].title}}"/>
+                        <input type="submit" value="Delete"/>
+                    </form>
+                {%endfor%}       
+            </ol>
+        </h3>        
+    </body>
+</html>
